@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NaltonBoost</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+background:#0f172a;
+color:white;
+overflow-x:hidden;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+width:260px;
+height:100vh;
+background:#111827;
+position:fixed;
+left:0;
+top:0;
+padding:20px;
+z-index:1000;
+transition:0.4s;
+}
+
+.logo{
+font-size:30px;
+font-weight:700;
+margin-bottom:40px;
+color:#ff9800;
+text-align:center;
+}
+
+.sidebar a{
+display:block;
+padding:15px;
+margin-bottom:15px;
+border-radius:15px;
+background:#1f2937;
+text-decoration:none;
+color:white;
+font-size:17px;
+transition:0.3s;
+}
+
+.sidebar a:hover{
+background:linear-gradient(45deg,#ff9800,#55ff66);
+}
+
+/* MAIN */
+
+.main{
+margin-left:260px;
+padding:20px;
+}
+
+/* TOPBAR */
+
+.topbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:25px;
+}
+
+.menu-btn{
+font-size:30px;
+cursor:pointer;
+display:none;
+}
+
+.profile img{
+width:60px;
+height:60px;
+border-radius:50%;
+border:3px solid orange;
+}
+
+/* USER CARD */
+
+.user-card{
+background:#111827;
+padding:35px;
+border-radius:25px;
+text-align:center;
+position:relative;
+overflow:hidden;
+border:2px solid #55ff66;
+}
+
+.ribbon{
+position:absolute;
+top:15px;
+right:-45px;
+background:#8cff66;
+color:black;
+padding:10px 50px;
+transform:rotate(45deg);
+font-weight:700;
+}
+
+.user-card img{
+width:120px;
+height:120px;
+border-radius:50%;
+border:5px solid orange;
+margin-bottom:15px;
+}
+
+.user-card h2{
+font-size:32px;
+margin-bottom:20px;
+}
+
+.balance{
+background:linear-gradient(45deg,#ff9800,#55ff66);
+padding:15px;
+border-radius:15px;
+font-size:28px;
+font-weight:700;
+}
+
+/* ACTIONS */
+
+.quick-actions{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+margin-top:25px;
+}
+
+.btn{
+padding:18px;
+border-radius:18px;
+text-align:center;
+font-size:20px;
+font-weight:600;
+text-decoration:none;
+transition:0.3s;
+}
+
+.orange{
+background:#ff9800;
+color:white;
+}
+
+.green{
+background:#55ff66;
+color:black;
+}
+
+.btn:hover{
+transform:translateY(-4px);
+}
+
+/* SERVICES */
+
+.title{
+margin-top:45px;
+margin-bottom:25px;
+font-size:32px;
+font-weight:700;
+}
+
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.service-card{
+background:white;
+color:black;
+padding:25px;
+border-radius:25px;
+position:relative;
+text-align:center;
+transition:0.3s;
+}
+
+.service-card:hover{
+transform:translateY(-6px);
+}
+
+.service-card img{
+width:75px;
+height:75px;
+object-fit:contain;
+margin-bottom:15px;
+}
+
+.badge{
+position:absolute;
+top:0;
+right:0;
+background:#ffdada;
+padding:10px 15px;
+border-bottom-left-radius:15px;
+color:red;
+font-size:12px;
+font-weight:700;
+}
+
+.service-card h3{
+font-size:24px;
+margin-bottom:10px;
+}
+
+.service-card p{
+color:#666;
+font-size:15px;
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+.sidebar{
+left:-260px;
+}
+
+.sidebar.active{
+left:0;
+}
+
+.main{
+margin-left:0;
+}
+
+.menu-btn{
+display:block;
+}
+
+.quick-actions{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+<div class="logo">
+NaltonBoost
+</div>
+
+<a href="#">🏠 Accueil</a>
+
+<a href="#">🛒 Nouvelle commande</a>
+
+<a href="#">💳 Ajouter des fonds</a>
+
+<a href="#">📦 Services</a>
+
+<a href="#">📜 Historique</a>
+
+<a href="#">📞 Support</a>
+
+</div>
+
+<!-- MAIN -->
+
+<div class="main">
+
+<!-- TOPBAR -->
+
+<div class="topbar">
+
+<div class="menu-btn" onclick="toggleMenu()">
+☰
+</div>
+
+<div class="profile">
+<img src="https://i.imgur.com/6VBx3io.png">
+</div>
+
+</div>
+
+<!-- USER CARD -->
+
+<div class="user-card">
+
+<div class="ribbon">
+NOUVEAU
+</div>
+
+<img src="https://i.imgur.com/6VBx3io.png">
+
+<h2>Kenalton</h2>
+
+<div class="balance">
+$0.0262
+</div>
+
+</div>
+
+<!-- ACTIONS -->
+
+<div class="quick-actions">
+
+<a href="#" class="btn orange">
+🛒 Nouvelle commande
+</a>
+
+<a href="#" class="btn green">
+💳 Ajouter des fonds
+</a>
+
+</div>
+
+<!-- SERVICES -->
+
+<h1 class="title">
+Services populaires
+</h1>
+
+<div class="services">
+
+<div class="service-card">
+
+<div class="badge">
+GLOBAL
+</div>
+
+<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+
+<h3>Instagram</h3>
+
+<p>
+Followers - Likes - Views
+</p>
+
+</div>
+
+<div class="service-card">
+
+<div class="badge">
+GLOBAL
+</div>
+
+<img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png">
+
+<h3>TikTok</h3>
+
+<p>
+Views - Followers
+</p>
+
+</div>
+
+<div class="service-card">
+
+<div class="badge">
+GLOBAL
+</div>
+
+<img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png">
+
+<h3>YouTube</h3>
+
+<p>
+Subscribers - Watchtime
+</p>
+
+</div>
+
+<div class="service-card">
+
+<div class="badge">
+GLOBAL
+</div>
+
+<img src="https://cdn-icons-png.flaticon.com/512/733/733547.png">
+
+<h3>Facebook</h3>
+
+<p>
+Likes - Followers
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function toggleMenu(){
+
+document.querySelector(".sidebar").classList.toggle("active");
+
+}
+
+</script>
+
+</body>
+</html>
